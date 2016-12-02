@@ -1,0 +1,14 @@
+<h1>Add a definition below.</h1>
+
+<form action="/new_definition" method="post">
+  <label for="answer">Definition:</label>
+  <input id="answer" name="answer" type="text">
+
+  <select class="form-control form-group" name="word" id="word">
+    <% @new_word.each() do |word| %>
+      <option><%= word.define() %></option>
+    <% end %>
+  </select>
+<button type="submit">Add definition</button>
+
+</form>
