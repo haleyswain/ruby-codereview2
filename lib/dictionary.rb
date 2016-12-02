@@ -8,4 +8,12 @@ define_method(:initialize) do |entry|
 define_method(:define) do
   @entry
   end
+
+  define_method(:save) do
+   @@new_word.push(self)
+ end
+
+ define_singleton_method(:all) do
+  @@new_word
+  end
 end
