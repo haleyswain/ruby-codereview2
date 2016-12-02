@@ -1,11 +1,11 @@
-<h1>Here are all the words in your dictionary:</h1>
+<h1>Your Dictionary</h1>
 
 <ul>
   <% @new_word.each() do |entry| %>
   <li><%= entry.define() %></li>
   <% end %>
-  <% @meaning.each() do |definition|%>
-  <li><%= definition.show()  %></li>
+  <% @meaning.each() do |new_definition|%>
+  <%= new_definition.show() %>
   <% end %>
 </ul>
 

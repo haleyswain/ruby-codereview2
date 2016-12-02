@@ -19,4 +19,5 @@ define_method(:define) do
   define_singleton_method(:clear) do
     @@new_word = []
   end
+
 end
