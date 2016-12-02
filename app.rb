@@ -12,7 +12,7 @@ get('/wordform') do
 end
 
 get('/definitionform') do
-  @meaning = Definition.all()
+  @meaning = Word.all()
   erb(:definitionform)
 end
 
@@ -25,5 +25,13 @@ post('/get_word') do
   entry = params.fetch('input')
   Word.new(entry).save()
   @new_word = Word.all()
-  erb(:library)
+  erb(:definitionform)
+end
+
+post('/new_definition') do
+  word = params.fetch('word')
+  definition = params.fetch('answer')
+  Definition.new(word, definition).save()
+  @new_word = Word.all()
+  erb(:wordbank)
 end

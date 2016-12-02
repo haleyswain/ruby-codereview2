@@ -1,1 +1,10 @@
 <h1>Here are all the words in your dictionary:</h1>
+
+<ul>
+  <% @new_word.each() do |entry| %>
+  <li><%= entry %></li>
+  <% end %>
+</ul>
+
+<a href = "/wordform"> Click here to enter a new word</a>
+<a href = '/definitionform'>Add another definition for a word</a>

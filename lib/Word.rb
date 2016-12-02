@@ -16,4 +16,17 @@ define_method(:define) do
  define_singleton_method(:all) do
   @@new_word
   end
+  define_singleton_method(:clear) do
+    @@meaning = []
+  end
+
+  define_singleton_method(:group) do |word_defined|
+    definitions = []
+    @@meaning.each() do |output|
+      if output.word().eql?(word_defined)
+        definitions.push(output.word())
+      end
+    end
+    definitions
+  end
 end

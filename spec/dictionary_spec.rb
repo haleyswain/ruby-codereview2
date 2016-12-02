@@ -1,6 +1,6 @@
 require('rspec')
 require('pry')
-require('dictionary')
+require('Word')
 
 describe('Word') do
   before() do
@@ -28,3 +28,7 @@ describe('#save') do
       expect(Word.all()).to(eq([test_word]))
     end
   end
+# describe('.group') do
+#   it('groups together words with their definitions') do
+#     test_answer =
+#   end

@@ -1,8 +1,9 @@
 class Definition
   @@meaning = []
 
-define_method(:initialize) do |definition|
+define_method(:initialize) do |definition, word|
   @definition = definition
+  @word = word
 end
 
 
