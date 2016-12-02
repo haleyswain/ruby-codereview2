@@ -19,7 +19,18 @@ end
 
 get('/wordbank') do
   @new_word = Word.all()
+  @meaning = Definition.all()
   erb(:wordbank)
+end
+
+post('/new_definition') do
+  @new_word = Word.all()
+  @meaning = Definition.all()
+  definition_input = params.fetch('definition')
+  meaning = Definition.new(definition_input)
+  meaning.save()
+  erb(:wordbank)
+
 end
 
 
@@ -31,10 +42,23 @@ post('/get_word') do
   erb(:definitionform)
 end
 
-post('/new_definition') do
-  word = params.fetch('word')
-  definition = params.fetch('answer')
-  Definition.new(word, definition).save()
-  @new_word = Word.all()
-  erb(:wordbank)
-end
+
+
+
+
+# post('/new_definition') do
+#   word = params.fetch('word')
+#   definition = params.fetch('answer')
+#   Definition.new(word, definition).save()
+#   @new_word = Word.all()
+#   erb(:wordbank)
+# end
+#
+# post('/new_definition') do
+#   @meaning = Definition.all()
+#   @new_word = Word.all()
+#   result = params.fetch("answer")
+#   new_word = Word.new(result)
+#   new_word.save()
+#   erb(:wordbank)
+# end

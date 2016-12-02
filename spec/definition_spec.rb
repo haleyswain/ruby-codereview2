@@ -9,7 +9,7 @@ describe('Definition') do
 describe('#definition') do
   it('returns the definition of the word') do
     test_definition = Definition.new('any member of the kingdom Plantae', 'plant')
-    expect(test_definition.definition()).to(eq('any member of the kingdom Plantae'))
+    expect(test_definition.show()).to(eq('any member of the kingdom Plantae'))
   end
 end
 
