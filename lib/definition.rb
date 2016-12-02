@@ -6,6 +6,9 @@ define_method(:initialize) do |definition, word|
   @word = word
 end
 
+  define_method(:word) do
+    @word
+  end
 
   define_method(:definition) do
     @definition
@@ -22,4 +25,5 @@ end
   define_method(:save) do
   @@meaning.push(self)
   end
+
 end

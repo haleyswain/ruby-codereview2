@@ -13,6 +13,10 @@ define_method(:define) do
    @@new_word.push(self)
  end
 
+ define_method(:id) do
+  @id
+end
+
  define_singleton_method(:all) do
   @@new_word
   end
@@ -20,13 +24,13 @@ define_method(:define) do
     @@meaning = []
   end
 
-  define_singleton_method(:group) do |word_defined|
-    definitions = []
-    @@meaning.each() do |output|
-      if output.word().eql?(word_defined)
-        definitions.push(output.word())
-      end
-    end
-    definitions
-  end
+  # define_singleton_method(:find) do |id|
+  #   found_word = nil
+  #   @@new_words.each() do |new_word|
+  #     if new_word.id().eql?(id)
+  #       found_word = new_word
+  #     end
+  #   end
+  #   found_word
+  # end
 end

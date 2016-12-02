@@ -2,8 +2,9 @@ require("sinatra")
 require("sinatra/reloader")
 also_reload("lib/**/*.rb")
 require("./lib/Word")
-
+require('./lib/definition')
 get('/') do
+  @new_words = Word.all()
   erb(:index)
 end
 
@@ -21,8 +22,10 @@ get('/wordbank') do
   erb(:wordbank)
 end
 
+
+
 post('/get_word') do
-  entry = params.fetch('input')
+  entry = params.fetch('entry')
   Word.new(entry).save()
   @new_word = Word.all()
   erb(:definitionform)

@@ -2,9 +2,9 @@
 
 <ul>
   <% @new_word.each() do |entry| %>
-  <li><%= entry %></li>
+  <li><%= entry.define() %></li>
+      <%= @meaning %>
   <% end %>
 </ul>
 
 <a href = "/wordform"> Click here to enter a new word</a>
-<a href = '/definitionform'>Add another definition for a word</a>
