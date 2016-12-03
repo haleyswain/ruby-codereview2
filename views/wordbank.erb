@@ -2,12 +2,12 @@
 
 <ul>
   <% @new_word.each() do |entry| %>
-  <li><%= entry.define() %></li>
+  <li><strong><%= entry.define() %></strong></li>
   <% end %>
+  <ul>
   <% @meaning.each() do |new_definition|%>
   <%= new_definition.show() %>
   <% end %>
-</ul>
-
-
+  </ul>
+  <br>
 <a href = "/wordform"> Click here to enter a new word</a>

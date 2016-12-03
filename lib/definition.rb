@@ -20,9 +20,4 @@ end
   define_method(:save) do
   @@meaning.push(self)
   end
-
-  define_method(:group) do |combine|
-    combine = @@meaning.join(entry)
-  end
-
 end

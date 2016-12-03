@@ -25,7 +25,14 @@ post('/new_definition') do
   erb(:wordbank)
 end
 
-
+post('/new_definition') do
+  @new_word = Word.all()
+  @meaning = Definition.all()
+  definition_input = params.fetch('definition')
+  meaning = Definition.new(definition_input)
+  meaning.save()
+  erb(:result)
+end
 
 post('/get_word') do
   entry = params.fetch('entry')
