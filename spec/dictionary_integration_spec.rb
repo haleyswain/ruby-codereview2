@@ -4,19 +4,19 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 describe('the word path', {:type => :feature}) do
-  it('adds and saves the word the user inputs') do
-    visit('/')
-    fill_in('entry', :with => "plant")
-    click_button('Add Word')
-    expect(page).to have_content("plant")
+  it('stores the word the user would like to be defined') do
+    visit('/word_form')
+    fill_in('entry', :with => "pony")
+    click_button('Add Word!')
+    expect(page).to have_content("pony")
   end
 end
 
 describe('the definition path', {:type => :feature}) do
-  it('adds and saves the users inputted definition') do
-    visit('/')
-    fill_in('definition', :with => "any member of the kingdom Plantae")
+  it('stores the definition corresponding to the word the user entered') do
+    visit('/definitionform')
+    fill_in('entry', :with => "a small horse")
     click_button('Add definition')
-    expect(page).to have_content("any member of the kingdom Plantae")
+    expect(page).to have_content("a small horse")
   end
 end

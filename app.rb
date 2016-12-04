@@ -5,7 +5,8 @@ require("./lib/Word")
 require('./lib/definition')
 
 get('/') do
-  erb(:index)
+  @words = Word.all()
+  erb(:wordbank)
 end
 
 get('/wordform') do
@@ -16,23 +17,21 @@ get('/definitionform') do
   erb(:definitionform)
 end
 
-post('/new_definition') do
-  @new_word = Word.all()
-  @meaning = Definition.all()
-  definition_input = params.fetch('definition')
-  meaning = Definition.new(definition_input)
-  meaning.save()
-  erb(:wordbank)
+get('/get_word') do
+  erb(:definitionform)
 end
 
+
 post('/new_definition') do
-  @new_word = Word.all()
-  @meaning = Definition.all()
+  index = params.fetch("word-index").to_i
+  @new_word = Word.all[index]
   definition_input = params.fetch('definition')
   meaning = Definition.new(definition_input)
+  @new_word.add_term(meaning)
   meaning.save()
-  erb(:result)
+  redirect "/"
 end
+
 
 post('/get_word') do
   entry = params.fetch('entry')

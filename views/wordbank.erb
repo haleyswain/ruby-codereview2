@@ -1,13 +1,16 @@
 <h1>Your Dictionary</h1>
 
 <ul>
-  <% @new_word.each() do |entry| %>
-  <li><strong><%= entry.define() %></strong></li>
-  <% end %>
-  <ul>
-  <% @meaning.each() do |new_definition|%>
-  <%= new_definition.show() %>
-  <% end %>
+  <% @words.each() do |word| %>
+    <li><strong><%= word.entry() %></strong></li>
+    <ul>
+      <% word.terms.each() do |definition|%>
+      <li><p>Definition: <%= definition.show() %></li></p>
+    <% end %>
   </ul>
+    <% end %>
   <br>
+</ul>
 <a href = "/wordform"> Click here to enter a new word</a>
+<br>
+<a href='/new_definition'> click here to enter another definition for a word you've already entered</a>

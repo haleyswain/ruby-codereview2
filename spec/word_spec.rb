@@ -8,13 +8,6 @@ describe('Word') do
   end
 end
 
-describe('#define') do
-  it('returns the word the user enters to be defined') do
-  test_word = Word.new("plant")
-  expect(test_word.define()).to(eq('plant'))
-  end
-end
-
 describe('.all') do
    it('is empty at first') do
      expect(Word.all()).to(eq([]))
@@ -26,5 +19,17 @@ describe('#save') do
     test_word = Word.new('plant')
       test_word.save()
       expect(Word.all()).to(eq([test_word]))
+    end
+  end
+
+  describe('#add_term') do
+    it('populates the terms array') do
+      expect(Word.add_term()).to(eq([]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties the array of words') do
+      expect(Definition.clear()).to(eq([]))
     end
   end

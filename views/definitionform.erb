@@ -4,9 +4,9 @@
   <label for="definition">Definition:</label>
   <input id="definition" name="definition" type="text">
 
-  <select class="form-control form-group" name="word" id="word">
-    <% @new_word.each() do |word| %>
-      <option><%= word.define() %></option>
+  <select class="form-control form-group" name="word-index" id="word">
+    <% @new_word.each_with_index() do |word, index| %>
+      <option value="<%= index %>"><%= word.entry() %></option>
     <% end %>
   </select>
 <button type="submit">Add definition</button>
