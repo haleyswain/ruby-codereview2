@@ -17,7 +17,7 @@ define_method(:initialize) do |entry|
   end
 
  define_singleton_method(:all) do
-  @@new_word
+   @@new_word
   end
   define_singleton_method(:clear) do
     @@new_word = []
